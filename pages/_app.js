@@ -1,3 +1,4 @@
+import Head from "next/head";
 import ShopProvider from "../context/shopContext";
 import "../styles/globals.css";
 
@@ -9,7 +10,9 @@ function MyApp({ Component, pageProps }) {
         <meta name="description" content="KMUTT BookStore" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Component {...pageProps} />
+      <main className="font-body w-full">
+        <Component {...pageProps} />
+      </main>
     </ShopProvider>
   );
 }
