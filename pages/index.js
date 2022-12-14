@@ -5,21 +5,8 @@ import { FireIcon, ShoppingCartIcon } from "@heroicons/react/24/solid";
 import ProductCard from "../components/ProductCard";
 import product from "../data/product";
 import NewStudent from "../components/NewStudent";
-export default function Home() {
-  const nameList = [
-    "Apple",
-    "T-Shirt",
-    "Name",
-    "Book",
-    "YearBook",
-    "LNG120",
-    "LNG220",
-    "Pen",
-    "Pencil",
-    "Table",
-    "Belt",
-    "Necktie",
-  ];
+import { getAllProducts } from "../lib/shopify";
+export default function Home({ products }) {
   return (
     <div className="font-body">
       <div className="p-6">
@@ -30,9 +17,15 @@ export default function Home() {
 
         {/* Product */}
         <div className="p-5 grid lg:grid-cols-4 lg:gap-4 md:grid-cols-3 md:gap-3 ">
-          {product.map((p, idx) => {
+          {products.map((p, idx) => {
             return (
-              <ProductCard key={idx} id={p.id} name={p.name} price={p.price} />
+              <ProductCard
+                key={idx}
+                id={p.node.id}
+                name={p.node.title}
+                price={p.node.priceRange.minVariantPrice.amount}
+                image={p.node.images.edges[0].node.url}
+              />
             );
           })}
         </div>
@@ -54,8 +47,17 @@ export default function Home() {
             </div>
           </div>
         </div>
+        {JSON.stringify(products)}
       </div>
       <NewStudent />
     </div>
   );
+}
+
+export async function getStaticProps() {
+  const products = await getAllProducts();
+  console.log(products);
+  return {
+    props: { products }, // will be passed to the page component as props
+  };
 }
