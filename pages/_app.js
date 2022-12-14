@@ -1,4 +1,6 @@
 import Head from "next/head";
+import Footer from "../components/Footer";
+import Navbar from "../components/Navbar";
 import ShopProvider from "../context/shopContext";
 import "../styles/globals.css";
 
@@ -11,7 +13,9 @@ function MyApp({ Component, pageProps }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="font-body w-full">
+        <Navbar/>
         <Component {...pageProps} />
+        <Footer/>
       </main>
     </ShopProvider>
   );

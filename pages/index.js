@@ -1,62 +1,61 @@
 import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
-
+import { FireIcon, ShoppingCartIcon } from "@heroicons/react/24/solid";
+import ProductCard from "../components/ProductCard";
+import product from "../data/product";
+import NewStudent from "../components/NewStudent";
 export default function Home() {
+  const nameList = [
+    "Apple",
+    "T-Shirt",
+    "Name",
+    "Book",
+    "YearBook",
+    "LNG120",
+    "LNG220",
+    "Pen",
+    "Pencil",
+    "Table",
+    "Belt",
+    "Necktie",
+  ];
   return (
-    <div className={styles.container}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-
-        <p className={styles.description}>
-          Get started by editing{" "}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
-
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h2>Documentation &rarr;</h2>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h2>Learn &rarr;</h2>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/canary/examples"
-            className={styles.card}
-          >
-            <h2>Examples &rarr;</h2>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.card}
-          >
-            <h2>Deploy &rarr;</h2>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
+    <div className="font-body">
+      <div className="p-6">
+        <div className="popular pl-4 flex flex-start">
+          <h1 className="text-4xl font-bold">Popular</h1>
+          <FireIcon className="h-10 w-8 text-orange" />
         </div>
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{" "}
-          <span className={styles.logo}>
-            <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
-          </span>
-        </a>
-      </footer>
+
+        {/* Product */}
+        <div className="p-5 grid lg:grid-cols-4 lg:gap-4 md:grid-cols-3 md:gap-3 ">
+          {product.map((p, idx) => {
+            return (
+              <ProductCard key={idx} id={p.id} name={p.name} price={p.price} />
+            );
+          })}
+        </div>
+        <div className="bg-white shadow-md border border-gray-200 rounded-lg max-w-[20rem] max-h-[20rem] dark:bg-gray-800 dark:border-gray-700 hover:border-orange">
+          <img
+            className="rounded-t-lg"
+            src="https://flowbite.com/docs/images/blog/image-1.jpg"
+            alt=""
+          />
+          <div className="p-3 flex justify-between items-center">
+            <span className="text-black  tracking-tight mb-1 dark:text-white">
+              <h4 className="text-black font-bold text-2xl tracking-tight mb-2 dark:text-white">
+                Test Mode
+              </h4>
+              <p className="text-xl">12345 ฿</p>
+            </span>
+            <div className="h-10 w-10 text-orange cursor-pointer">
+              <ShoppingCartIcon />
+            </div>
+          </div>
+        </div>
+      </div>
+      <NewStudent />
     </div>
   );
 }
