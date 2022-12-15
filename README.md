@@ -1,17 +1,19 @@
 # :orange_book: KMUTT BookStore
 
 ![bookstore banner](https://raw.githubusercontent.com/ChaiyapatOam/KMUTT-BookStore/main/public/Banner.png)
+
 ## About this Project
+
 KMUTT BookStore is the website online shopping in the part of CPE101 Final Project
 
 ## Members
 
-| Name                         | Role                |
-| ---------------------------- | ------------------- |
-| `Chaiyapat Meeying`          | Fullstack Developer |
-| `Arthit Nopajaroonsri`       | Frontend Developer  |
-| `Tarinnaphop Katiratanachai` | Frontend Developer  |
-| `Kanitsorn Darunaitorn`      | UX/UI Design        |
+| Github        | Name                         | Role                |
+| ------------- | ---------------------------- | ------------------- |
+| @ChaiyapatOam | `Chaiyapat Meeying`          | Fullstack Developer |
+| @Arthit3108   | `Arthit Nopajaroonsri`       | Frontend Developer  |
+| @wawawind     | `Tarinnaphop Katiratanachai` | Frontend Developer  |
+| @Dr804t       | `Kanitsorn Darunaitorn`      | UX/UI Design        |
 
 ## Run Locally
 
