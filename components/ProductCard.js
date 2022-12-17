@@ -1,16 +1,29 @@
-import React from "react";
+import React, { useContext } from "react";
 import ShoppingCartIcon from "@heroicons/react/24/solid/ShoppingCartIcon";
-import Image from "next/image";
+import Image from "next/legacy/image";
+import { CartContext } from "../context/shopContext";
 const ProductCard = ({ id, name, price, image }) => {
+  const { addToCart } = useContext(CartContext);
+  const selectedVariant = {
+    id: id,
+    title: name,
+    handle: name,
+    image: image,
+    options: { Title: "Default Title" },
+    variantTitle: "Default Title",
+    variantPrice: price,
+    variantQuantity: 1,
+  };
+
   return (
     <div className="bg-white shadow-md border border-gray-200 rounded-lg max-w-[20rem] max-h-[20rem] dark:bg-gray-800 dark:border-gray-700 hover:border-orange">
       <div className="relative h-[14rem]">
         <Image
-          className="h-full"
+          className="h-full rounded-t-lg"
           src={
             image ? image : "https://flowbite.com/docs/images/blog/image-1.jpg"
           }
-          fill
+          layout="fill"
           style="cover"
           alt={name}
         />
@@ -23,7 +36,12 @@ const ProductCard = ({ id, name, price, image }) => {
           <p className="text-xl">{price} ฿</p>
         </span>
         <div className="h-10 w-10 text-orange cursor-pointer">
-          <ShoppingCartIcon onClick={() => {}} />
+          <ShoppingCartIcon
+            onClick={() => {
+              // console.log(selectedVariant);
+              addToCart(selectedVariant);
+            }}
+          />
         </div>
       </div>
     </div>
