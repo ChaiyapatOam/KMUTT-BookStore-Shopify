@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import ShoppingCartIcon from "@heroicons/react/24/solid/ShoppingCartIcon";
 import Image from "next/legacy/image";
 import { CartContext } from "../context/shopContext";
-const ProductCard = ({ id, name, price, image }) => {
+const ProductCard = ({ id, name, price, image, available }) => {
   const { addToCart } = useContext(CartContext);
   const selectedVariant = {
     id: id,
@@ -35,14 +35,19 @@ const ProductCard = ({ id, name, price, image }) => {
           </h4>
           <p className="text-xl">{price} ฿</p>
         </span>
-        <div className="h-10 w-10 text-orange cursor-pointer">
-          <ShoppingCartIcon
-            onClick={() => {
-              // console.log(selectedVariant);
-              addToCart(selectedVariant);
-            }}
-          />
-        </div>
+        {available ? (
+          <div className="h-10 w-10 text-orange cursor-pointer">
+            <ShoppingCartIcon
+              onClick={() => {
+                addToCart(selectedVariant);
+              }}
+            />
+          </div>
+        ) : (
+          <h1 className=" text-gray-50 font-bold text-2xl bg-orange rounded-md px-2">
+            สินค้าหมด
+          </h1>
+        )}
       </div>
     </div>
   );
