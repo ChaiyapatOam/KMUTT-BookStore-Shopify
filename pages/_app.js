@@ -3,6 +3,7 @@ import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import ShopProvider from "../context/shopContext";
 import "../styles/globals.css";
+import { NextSeo } from "next-seo";
 
 function MyApp({ Component, pageProps }) {
   const meta = {
