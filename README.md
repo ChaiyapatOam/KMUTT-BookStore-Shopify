@@ -14,7 +14,6 @@ KMUTT BookStore is the website online shopping in the part of CPE101 Final Proje
 | @Arthit3108   | `Arthit Nopajaroonsri`       | Frontend Developer  |
 | @wawawind     | `Tarinnaphop Katiratanachai` | Frontend Developer  |
 | @Dr804t       | `Kanitsorn Darunaitorn`      | UX/UI Design        |
-
 ## Run Locally
 
 Clone the project
