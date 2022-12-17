@@ -32,6 +32,7 @@ export default async function handler(req, res) {
     }
   
     async function getProductId(handle) {
+      handle = handle.replace(/\s+/g, '-')
       const query = `
       {
         product(handle: "${handle}") {
