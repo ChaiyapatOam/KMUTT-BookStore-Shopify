@@ -20,10 +20,11 @@ export default function Home({ products }) {
               <ProductCard
                 key={idx}
                 id={p.node.id}
+                handle={p.node.handle}
                 name={p.node.title}
                 price={p.node.priceRange.minVariantPrice.amount}
                 image={p.node.images.edges[0].node.url}
-                handle={p.node.handle}
+                available={p.node.availableForSale}
               />
             );
           })}
