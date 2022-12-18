@@ -2,12 +2,12 @@ import React, { useContext } from "react";
 import ShoppingCartIcon from "@heroicons/react/24/solid/ShoppingCartIcon";
 import Image from "next/legacy/image";
 import { CartContext } from "../context/shopContext";
-const ProductCard = ({ id, name, price, image, available }) => {
+const ProductCard = ({ id, name, price, image, available, handle }) => {
   const { addToCart } = useContext(CartContext);
   const selectedVariant = {
     id: id,
     title: name,
-    handle: name,
+    handle: handle,
     image: image,
     options: { Title: "Default Title" },
     variantTitle: "Default Title",
