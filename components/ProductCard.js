@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import ShoppingCartIcon from "@heroicons/react/24/solid/ShoppingCartIcon";
 import Image from "next/legacy/image";
 import { CartContext } from "../context/shopContext";
+import { formatNumber } from "../lib/formatNumber";
 const ProductCard = ({ id, name, price, image, available, handle }) => {
   const { addToCart } = useContext(CartContext);
   const selectedVariant = {
@@ -33,7 +34,7 @@ const ProductCard = ({ id, name, price, image, available, handle }) => {
           <h4 className="text-black font-bold text-2xl tracking-tight mb-2 dark:text-white">
             {name}
           </h4>
-          <p className="text-xl">{price} ฿</p>
+          <p className="text-xl">{formatNumber(price)} ฿</p>
         </span>
         {available ? (
           <div className="h-10 w-10 text-orange cursor-pointer">
